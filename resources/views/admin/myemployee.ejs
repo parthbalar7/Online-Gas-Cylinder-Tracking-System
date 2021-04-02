@@ -1,0 +1,26 @@
+<section class="orders light-section">
+    <div class="container mx-auto pt-12 px-10">
+        <table class="w-full table-auto bg-white">
+            <thead>
+                <tr>
+                    <th>Delivery Person</th>
+                    <th>Email</th>
+                    <th>Contact Number</th>
+                    <th>Employee ID</th>
+                    <th>Remove Employee</th>
+                </tr>
+            </thead>
+            <tbody> 
+                <% employees.forEach(function(employee){ %>
+                <tr>
+                    <td class="border px-4 py-2"><%=employee.name %></td>
+                    <td class="border px-4 py-2"><%=employee.email %></td>
+                    <td class="border px-4 py-2"><%=employee.phone %></td>
+                    <td class="border px-4 py-2"><%=employee.uid %></td>
+                    <td class="border px-4 py-2"><button data-emp='<%= JSON.stringify(employee) %>' class="remove-employee btn-primary px-4 py-2 rounded-full text-white font-bold"><a href="/employee">Remove</a></button></td>
+                </tr>
+                <% }) %>
+            </tbody >
+        </table>
+    </div>
+</section>

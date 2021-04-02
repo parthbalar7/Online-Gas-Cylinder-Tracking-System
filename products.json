@@ -1,0 +1,41 @@
+[{
+  "_id": {
+    "$oid": "5eee651f739f8c674fd736ee"
+  },
+  "name": "Indane Gas 14kg",
+  "image": "logo.png",
+  "price": "701",
+  "type": "cylinder"
+},{
+  "_id": {
+    "$oid": "5eee6671a27a66807cf2bea3"
+  },
+  "name": "Indane Gas 5kg",
+  "image": "logo2.png",
+  "price": "432",
+  "type": "cylinder"
+},{
+  "_id": {
+    "$oid": "5eee6692a27a66807cf2bea4"
+  },
+  "name": "Gas Pipe",
+  "image": "hose.png",
+  "price": "120",
+  "type": "equipment"
+},{
+  "_id": {
+    "$oid": "5eee66a5a27a66807cf2bea5"
+  },
+  "name": "Regulator",
+  "image": "regulator.png",
+  "price": "350",
+  "type": "equipment"
+},{
+  "_id": {
+    "$oid": "5eee66c4a27a66807cf2bea6"
+  },
+  "name": "Gas Lighter",
+  "image": "lighter.png",
+  "price": "100",
+  "type": "equipment"
+}]

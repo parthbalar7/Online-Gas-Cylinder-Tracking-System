@@ -1,0 +1,102 @@
+<section class="hero py-16">
+    <div class="container mx-auto px-10 flex items-center justify-between">   
+        <div class="w-1/2">
+            <h6 class="text-lg"><em>Welcome </em></h6>
+            <% if(user){ %>
+                <h1 class="text-3xl md:text-6xl font-bold"><%= user.name%>! </h1>
+            <% } else { %>
+                <h1 class="text-8xl font-bold">Guest!</h1>
+            <% } %>
+            <%if(user) { %>
+            <%if(user.role == 'customer' || user.role == 'admin') { %>
+            <div class="dropdown py-2">
+                <button class="dropbtn"><a href="">Our Products :</a></button>
+                <div class="dropdown-content">
+                  <a href="/cylinders"><button >Gas Cylinders</button></a>
+                  <a href="/equipments"><button >Equipments</button></a>
+                  <a href="/"><button >All Products</button></a>
+                </div>
+            </div>
+            <%}%>
+            <%}%>
+        </div>
+        <div class="w-1/2">
+            <img src="/img/hero.png" alt="">
+        </div>
+    </div>
+</section>
+<%if(user) { %>
+<%if(user.role == 'customer') { %>
+<section class="px-10 py-16">
+    <div class="flex items-center border-b border-gray-300 pb-4">
+        <img src="/img/cart-black.png" alt="">
+        <h1 class="text-bold ml-4 text-2xl">Products</h1>
+    </div>
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 col-gap-12 row-gap-16 py-24">
+        <% items.forEach(function(item){ %>
+            <div class="w-full md:w-64 py-16">
+                <img class="h-40 mb-4 mx-auto" src="/img/<%= item.image %>" alt="">
+                <div class="text-center">
+                    <h2 class="mb-4 text-lg"><%= item.name %></h2>
+                    <span class="size py-1 px-4 rounded-full uppercase text-xs"><%= item.type%></span>
+                    <div class="flex items-center justify-around mt-6 py-2">
+                        <span class="font-bold text-lg">₹<%= item.price%></span>
+                        <button data-item='<%= JSON.stringify(item) %>' class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
+                            <span>+</span>
+                            <span class="ml-4">Add</span>
+                        </button>
+                    </div>
+                </div> 
+            </div> 
+        <% }) %>
+    </section>
+</section>
+<% } %>
+<%if(user.role == 'admin') { %>
+    <section class="px-10 py-16">
+        <div class="flex items-center border-b border-gray-300 pb-4">
+            <img src="/img/cart-black.png" alt="">
+            <h1 class="text-bold ml-4 text-2xl">Products</h1>
+        </div>
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 col-gap-12 row-gap-16 py-24">
+            <% items.forEach(function(item){ %>
+                <div class="w-full md:w-64 py-16">
+                    <img class="h-40 mb-4 mx-auto" src="/img/<%= item.image %>" alt="">
+                    <div class="text-center">
+                        <h2 class="mb-4 text-lg"><%= item.name %></h2>
+                        <span class="size py-1 px-4 rounded-full uppercase text-xs"><%= item.type%></span>
+                        <div class="flex items-center justify-around mt-6 py-2">
+                            <span class="font-bold text-lg">₹<%= item.price%></span>
+                        </div>
+                    </div> 
+                </div> 
+            <% }) %>
+        </section>
+    </section>  
+<% } %>
+<% } else { %>
+    <section class="px-10 py-16">
+        <div class="flex items-center border-b border-gray-300 pb-4">
+            <img src="/img/cart-black.png" alt="">
+            <h1 class="text-bold ml-4 text-2xl">Products</h1>
+        </div>
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 col-gap-12 row-gap-16 py-24">
+            <% items.forEach(function(item){ %>
+                <div class="w-full md:w-64 py-16">
+                    <img class="h-40 mb-4 mx-auto" src="/img/<%= item.image %>" alt="">
+                    <div class="text-center">
+                        <h2 class="mb-4 text-lg"><%= item.name %></h2>
+                        <span class="size py-1 px-4 rounded-full uppercase text-xs"><%= item.type%></span>
+                        <div class="flex items-center justify-around mt-6 py-2">
+                            <span class="font-bold text-lg">₹<%= item.price%></span>
+                            <button data-item='<%= JSON.stringify(item) %>' class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
+                                <span>+</span>
+                                <span class="ml-4">Add</span>
+                            </button>
+                        </div>
+                    </div> 
+                </div> 
+            <% }) %>
+        </section>
+    </section>
+    <% } %>

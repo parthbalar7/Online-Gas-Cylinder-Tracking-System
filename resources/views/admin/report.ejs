@@ -1,0 +1,53 @@
+<div class=" container mx-auto px-10">
+    
+    <form action="/report" method="GET" class="mx-auto px-6 mt-8 w-max">
+        <div class="form-group">
+            <input name="search" class="border border-gray-400 p-2 w-1/2 mb-4 form-control" type="text" placeholder="Area">
+            <button class="btn-primary px-6 py-2 rounded-full text-white font-bold mt-6" value="Search" type="submit">Search</button>
+        </div>
+    </form>
+</div>
+
+<section class="orders light-section">
+    <div class="container mx-auto pt-12 px-10">
+        <table class="w-full table-auto bg-white">
+            <thead>
+                <tr>
+                    <th>Orders</th>
+                    <th>Customer</th>
+                    <th>Address</th>
+                    <th>Area</th>
+                    <th>Phone</th>
+                    <th>LPG ID</th>
+                    <th>Payment Status</th>
+                </tr>
+            </thead>
+            <tbody> 
+                <% var totalCylinder = 0 %>
+                <% var totalEquipment = 0 %>
+                <% orders.forEach(function(order){ %>
+                    <tr>
+                        <td class="border px-4 py-2 text-green-900">
+                            <p><%= order._id %></p>
+                            <p>Total: <%= order.totalPrice %></p>
+                            <p>Cylinder: <%= order.cyQty %></p>
+                            <p>Equipments: <%= order.eqQty%></p>
+                        </td>
+                        <td class="border px-4 py-2"><%= order.customerId.name %></td>
+                        <td class="border px-4 py-2"><%= order.address %></td>
+                        <td class="border px-4 py-2"><%= order.area %></td>
+                        <td class="border px-4 py-2"><%= order.phone %></td>
+                        <td class="border px-4 py-2"><%= order.lpgId %></td>
+                        <td class="border px-4 py-2">
+                            <%= order.paymentStatus ? 'paid' : 'Not paid' %>
+                        </td>
+                    </tr>
+                    <%totalCylinder = totalCylinder + order.cyQty%>
+                    <%totalEquipment = totalEquipment + order.eqQty%>
+                <% }) %>
+            </tbody >
+            <h3 class="font-bold text-lg mb-4 text-red-600">Total Cylinders sold : <%= totalCylinder %></h3>
+            <h3 class="font-bold text-lg mb-4 text-red-600">Total Equipments sold : <%= totalEquipment %></h3>
+        </table>
+    </div> 
+</section>

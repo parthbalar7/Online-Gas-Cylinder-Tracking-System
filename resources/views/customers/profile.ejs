@@ -1,0 +1,68 @@
+<% if(user) { %>
+<form action="/profile" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <% if(messages.error) { %>
+    <span class="text-red-500 text-sm"><%= messages.error %></span>
+    <% } %>
+    <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+            Name
+        </label>
+        <input name="name" value="<%= user.name  %>"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="username" type="text" placeholder="Enter Employee name" value="<%= user.name %>">
+    </div>
+
+    <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="phone">
+            Phone
+        </label>
+        <input name="phone" value="<%= user.phone  %>"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="phone" type="text" placeholder="Enter Employee phone number">
+    </div>
+
+    <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+            Email
+        </label>
+        <input name="email" value="<%= user.email  %>"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="username" type="email" placeholder="Enter your email">
+    </div>
+
+    <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="address">
+            Address
+        </label>
+        <input name="address" value="<%= user.address  %>"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="address" type="text" placeholder="Enter Address">
+    </div>
+
+    <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="address">
+            Area
+        </label>
+        <input name="area" value="<%= user.area  %>"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="address" type="text" placeholder="Enter Area">
+    </div>
+
+    <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="lpgId">
+            LPG ID
+        </label>
+        <input name="lpgId" value="<%= user.lpgId  %>"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="lpgId" type="text" placeholder="Enter LPG ID">
+    </div>
+
+    <div class="flex items-center justify-between py-4">
+        <button
+            class="btn-primary rounded-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="submit">
+            save
+        </button>
+    </div>
+</form>
+<% } %>
