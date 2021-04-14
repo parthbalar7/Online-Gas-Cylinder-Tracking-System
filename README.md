@@ -11,4 +11,4 @@ Steps to run application
 7. run command - touch webpack.mix.js
 8. run command - yarn dev OR npm run dev (if you use npm)
 9. open onother terminal in main folder
-10. run command - yarn watch 
+10. run command - yarn watch OR npm run watch (if you use npm)
